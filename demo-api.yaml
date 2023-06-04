@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-api
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      demo-api: web
+  template:
+    metadata:
+      labels:
+        demo-api: web
+    spec:
+      containers:
+      - name: demo-api
+        image: lucasalf/demo-api:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-api-service
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    demo-api: web
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30001

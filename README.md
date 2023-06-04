@@ -39,6 +39,11 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
+### Verificar se o docker foi instalado com sucesso
+```
+docker --version
+```
+
 ## Instalar o pacote do Golang
 ```
 curl -LO "https://go.dev/dl/go1.20.4.linux-amd64.tar.gz"

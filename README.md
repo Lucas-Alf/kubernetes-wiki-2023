@@ -105,6 +105,25 @@ kubectl apply -f cluster-role-binding.yaml
 kubectl -n kubernetes-dashboard create token admin-user
 ```
 
+## Instalar o MetalLB
+```
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+```
+### Esperar todos os recursos do MetalLB serem criados
+```
+kubectl wait --namespace metallb-system \
+                --for=condition=ready pod \
+                --selector=app=metallb \
+                --timeout=90s
+```
+
+### Definir faixa de IPs controladas pelo MetalLB
+```
+docker network inspect -f '{{.IPAM.Config}}' kind
+kubectl apply -f https://kind.sigs.k8s.io/examples/loadbalancer/metallb-config.yaml
+```
+
+
 ## Deployment da aplicação de demonstração
 ```
 kubectl apply -f demo-api.yaml

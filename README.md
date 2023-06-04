@@ -41,10 +41,24 @@ sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 ```
 ```
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+```
+```
+source .profile
 ```
 ```
 go version
 ```
 
+
+## Instalar o Kind
+```
+go install sigs.k8s.io/kind@v0.19.0
+```
+
+## Criar um novo cluster
+```
+kind create cluster
+```
 
 

@@ -31,3 +31,20 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
 kubectl version
 ```
+
+## Instalar o pacote do Golang
+```
+curl -LO "https://go.dev/dl/go1.20.4.linux-amd64.tar.gz"
+```
+```
+sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
+```
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+```
+go version
+```
+
+
+

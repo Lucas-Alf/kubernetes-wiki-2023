@@ -23,7 +23,7 @@ metadata:
   name: demo-api-service
   namespace: default
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     demo-api: web
   ports:

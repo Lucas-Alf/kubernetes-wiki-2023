@@ -68,16 +68,6 @@ source .profile
 go version
 ```
 
-## Instalar o Kind
-```
-go install sigs.k8s.io/kind@v0.19.0
-```
-
-### Criar um novo cluster
-```
-kind create cluster
-```
-
 ## Instalar o pacote do Kubectl
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -89,6 +79,16 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ### Verificar se o Kubectl foi instalado com sucesso
 ```
 kubectl version --short
+```
+
+## Instalar o Kind
+```
+go install sigs.k8s.io/kind@v0.19.0
+```
+
+### Criar um novo cluster
+```
+kind create cluster
 ```
 
 ## Instalar o Dashboard do Kubernetes

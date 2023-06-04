@@ -72,3 +72,15 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --short
 ```
 
+## Instalar o Dashboard do Kubernetes
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+```
+
+## Fazer o proxy de rede para ter acesso ao dashboard
+```
+kubectl port-forward -n kubernetes-dashboard svc/kubernetes-dashboard 8080:443 --address 0.0.0.0
+```
+```
+https://192.168.184.128:8080/#/login
+```

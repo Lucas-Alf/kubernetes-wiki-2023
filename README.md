@@ -16,20 +16,21 @@ O seguinte comando irá instalar Docker e todas as suas dependencies, podendo de
 sudo apt install -y docker.io
 ```
 
+## Habilitar o uso do Docker sem o sudo
+```
+sudo groupadd docker
+```
+```
+sudo usermod -aG docker $USER
+```
+```
+newgrp docker
+```
+
+
 ## Instalar os pacotes do Curl
 ```
 sudo apt install -y apt-transport-https curl
-```
-
-## Instalar o pacote do Kubectl
-```
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-```
-```
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-```
-```
-kubectl version
 ```
 
 ## Instalar o pacote do Golang
@@ -50,7 +51,6 @@ source .profile
 go version
 ```
 
-
 ## Instalar o Kind
 ```
 go install sigs.k8s.io/kind@v0.19.0
@@ -61,4 +61,14 @@ go install sigs.k8s.io/kind@v0.19.0
 kind create cluster
 ```
 
+## Instalar o pacote do Kubectl
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+```
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+```
+kubectl version --short
+```
 

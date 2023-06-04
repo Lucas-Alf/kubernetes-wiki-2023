@@ -84,3 +84,29 @@ kubectl port-forward -n kubernetes-dashboard svc/kubernetes-dashboard 8080:443 -
 ```
 https://192.168.184.128:8080/#/login
 ```
+
+## Download dos scripts
+```
+curl -LO "https://raw.githubusercontent.com/Lucas-Alf/kubernetes-wiki-2023/main/demo-api.yaml"
+curl -LO "https://raw.githubusercontent.com/Lucas-Alf/kubernetes-wiki-2023/main/cluster-role-binding.yaml"
+curl -LO "https://raw.githubusercontent.com/Lucas-Alf/kubernetes-wiki-2023/main/service-account.yaml"
+```
+
+## Execução dos scripts
+```
+kubectl apply -f service-account.yaml
+```
+```
+kubectl apply -f cluster-role-binding.yaml
+```
+
+## Criar token para acessar o Dashboard
+```
+kubectl -n kubernetes-dashboard create token admin-user
+```
+
+## Deployment da aplicação de demonstração
+```
+kubectl apply -f demo-api.yaml
+kubectl port-forward -n default svc/demo-api-service 8081:80 --address 0.0.0.0
+```

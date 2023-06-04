@@ -127,5 +127,6 @@ kubectl apply -f https://kind.sigs.k8s.io/examples/loadbalancer/metallb-config.y
 ## Deployment da aplicação de demonstração
 ```
 kubectl apply -f demo-api.yaml
-kubectl port-forward -n default svc/demo-api-service 8081:80 --address 0.0.0.0
+kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
+http://192.168.184.128:8001/api/v1/namespaces/default/services/http:demo-api-service:/proxy/time
 ```

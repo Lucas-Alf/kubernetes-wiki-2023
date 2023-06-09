@@ -157,5 +157,5 @@ kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
 
 ### URL de acesso a aplicação
 ```
-http://192.168.184.128:8001/api/v1/namespaces/default/services/http:demo-api-service:/proxy/time
+http://192.168.184.128:8001/api/v1/namespaces/default/services/http:demo-api-service:/proxy/
 ```

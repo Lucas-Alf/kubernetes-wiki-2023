@@ -1,4 +1,10 @@
 # kubernetes-wiki-2023
+## Ajustar o horário do sistema
+```
+sudo timedatectl set-timezone Brazil/East
+sudo timedatectl set-ntp on
+```
+
 ## Atualizar os pacotes do sistema
 ```
 sudo apt update

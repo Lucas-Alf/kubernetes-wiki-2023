@@ -16,6 +16,9 @@ spec:
       containers:
       - name: demo-api
         image: lucasalf/demo-api:latest
+        env:
+            - name: TZ
+              value: America/Sao_Paulo
 ---
 apiVersion: v1
 kind: Service

@@ -152,10 +152,10 @@ kubectl apply -f demo-api.yaml
 
 ### Realizar o proxy de rede para ter acesso a aplicação
 ```
-kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
+kubectl port-forward -n default service/demo-api-service 8001:80 --address 0.0.0.0
 ```
 
 ### URL de acesso a aplicação
 ```
-http://192.168.184.128:8001/api/v1/namespaces/default/services/http:demo-api-service:/proxy/
+http://192.168.184.129:8001/
 ```

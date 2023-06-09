@@ -1,7 +1,7 @@
 # kubernetes-wiki-2023
 ## Ajustar o horário do sistema
 ```
-sudo timedatectl set-timezone Brazil/East
+sudo timedatectl set-timezone America/Sao_Paulo
 sudo timedatectl set-ntp on
 ```
 
